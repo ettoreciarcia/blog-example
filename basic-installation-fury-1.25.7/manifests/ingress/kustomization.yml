@@ -1,0 +1,8 @@
+resources:
+  # Ingress definitions
+  - resources/ingress.yml
+  - ../../vendor/katalog/ingress/nginx
+  - ../../vendor/katalog/ingress/forecastle
+
+# patchesStrategicMerge:
+#   - patches/nginx-ingress-controller-resources.yml

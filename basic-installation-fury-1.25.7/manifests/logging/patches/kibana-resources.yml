@@ -1,0 +1,20 @@
+# Source: opensearch-dashboards/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opensearch-dashboards
+  labels:
+    app.kubernetes.io/name: opensearch-dashboards
+    app.kubernetes.io/instance: opensearch-dashboards
+spec:
+  template:
+    spec:
+      containers:
+        - name: dashboards
+          resources:
+            limits:
+              cpu: 100m
+              memory: 512M
+            requests:
+              cpu: 100m
+              memory: 512M
