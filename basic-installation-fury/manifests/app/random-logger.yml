@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: random-logger
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: random-logger
+  namespace: random-logger
+spec:
+  replicas: 1  
+  selector:
+    matchLabels:
+      app: random-logger
+  template:
+    metadata:
+      labels:
+        app: random-logger
+    spec:
+      containers:
+      - name: random-logger
+        image: chentex/random-logger:latest
+        ports:
+        - containerPort: 80 

@@ -1,0 +1,9 @@
+{
+    "index_patterns" : ["random-log-*"],
+    "settings": {
+      "number_of_shards": 1,
+      "auto_expand_replicas": "0-1",
+      "codec": "best_compression"
+    }
+  }
+  
