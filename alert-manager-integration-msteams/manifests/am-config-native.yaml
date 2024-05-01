@@ -1,0 +1,32 @@
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  namespace: monitoring
+  name: native-am-config
+spec:
+  route:
+    matchers:
+      - name: namespace
+        matchType: "=~"
+        value: ".*"
+      - name: alertname
+        matchType: "=~"
+        value: ".*"
+    receiver: microsoft-teams
+  receivers:
+    - name: microsoft-teams
+      msteamsConfigs:
+        - webhookUrl:
+            key: webhookUrl
+            name: teams-webhook-secret 
+          sendResolved: true
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: teams-webhook-secret
+  namespace: monitoring
+type: Opaque
+stringData:
+  webhookUrl: <REPLACE_ME>

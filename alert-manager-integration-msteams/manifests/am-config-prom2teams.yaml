@@ -1,0 +1,21 @@
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  namespace: monitoring
+  name: prom2teams-am-config
+spec:
+  route:
+    matchers:
+      - name: namespace
+        matchType: "=~"
+        value: ".*"
+      - name: alertname
+        matchType: "=~"
+        value: ".*"
+    receiver: prom2teams
+  receivers:
+    - name: prom2teams
+      webhookConfigs:
+        - url: "http://prom2teams.monitoring:8089/v2/Connector"
+          sendResolved: true
