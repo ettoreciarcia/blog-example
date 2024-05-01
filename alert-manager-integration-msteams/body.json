@@ -1,0 +1,28 @@
+{
+  "receiver": "admin@example.com",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "startsAt": "2024-05-01T08:00:00Z",
+      "endsAt": "2024-05-01T08:30:00Z",
+      "generatorURL": "http://prometheus.example.com/generator",
+      "labels": {
+        "alertname": "HighDiskUsage",
+        "fstype": "ext4",
+        "device": "/dev/sda1",
+        "instance": "node-1",
+        "job": "node-exporter",
+        "mountpoint": "/",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "Disk usage on root partition is above 90%.",
+        "summary": "High disk usage detected",
+        "runbook_url": "http://runbook.example.com/high-disk-usage"
+      }
+    }
+  ],
+  "externalURL": "http://alertmanager.example.com",
+  "version": "4"
+}
